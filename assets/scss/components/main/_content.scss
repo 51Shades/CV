@@ -1,0 +1,128 @@
+/**
+ *  Matt Cowley - CV: An elegant and expandable CV design made with SASS, HTML and love.
+ *  <https://github.com/MattIPv4/CV/>
+ *  Copyright (C) 2020 Matt Cowley (MattIPv4) (me@mattcowley.co.uk)
+ *  Please see <https://github.com/MattIPv4/CV/blob/master/LICENSE.md> for the full license.
+ */
+.block {
+  margin: 15px 30px;
+
+  .item {
+    margin-bottom: 25px;
+
+    ul {
+      li {
+        a {
+          color: mix($primary, $white, 50%);
+          text-decoration: none;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-weight: 200;
+    margin-left: -5px;
+  }
+
+  .collapse,
+  .collapse-all,
+  .expand-all {
+    cursor: pointer;
+    font-size: 1.4rem;
+  }
+
+  .collapse {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  &.collapsed {
+    .item {
+      margin-bottom: 0;
+
+      &.has-table {
+        display: none;
+      }
+
+      > section {
+        margin-bottom: 0;
+        margin-top: 0;
+
+        + section {
+          border-left: 2px solid desaturate($primary, 50%);
+          margin: 0 0 0 5px;
+          padding: 0 0 0 10px;
+        }
+
+        > :not(blockquote) {
+          display: none;
+        }
+
+        > blockquote {
+          margin-bottom: 5px;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.line {
+  $circle-overlap: 5px;
+  $circle-margin: 5px;
+  $circle-size: 26px;
+
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: $circle-size;
+  justify-content: center;
+  margin: 0 0 0 30px;
+
+  .line_left,
+  .line_right {
+    border-top: $border;
+    flex-grow: 1;
+  }
+
+  .left_circle,
+  .central_circle,
+  .right_circle {
+    background: rgba(desaturate($primary, 25%), .15);
+    border-radius: 50px;
+  }
+
+  .left_circle,
+  .right_circle {
+    height: $circle-size / 2;
+    width: $circle-size / 2;
+  }
+
+  .left_circle {
+    margin-left: $circle-margin;
+    margin-right: -$circle-overlap;
+  }
+
+  .central_circle {
+    height: $circle-size;
+    width: $circle-size;
+  }
+
+  .right_circle {
+    margin-left: -$circle-overlap;
+    margin-right: $circle-margin;
+  }
+}
+
+ul {
+  li {
+    font-size: 1.4rem;
+    line-height: 1em;
+    margin-bottom: 10px;
+  }
+}
